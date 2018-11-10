@@ -6,6 +6,8 @@
 
 NodeJS library for nice & easy console logs.
 
+# <img src="https://github.com/ddoronin/yorker/blob/master/assets/screen.png">
+
 ## Quick Start
 Install using `yarn` or `npm`.
 ```bash
