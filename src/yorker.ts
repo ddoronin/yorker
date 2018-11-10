@@ -1,11 +1,12 @@
 import { NYPDTheme } from './theme';
+import { stringify } from 'querystring';
 
 const NOOP = (msg: string, error?: Error): void => null;
 
 export interface ITheme {
-    see(something: string, dateTime: Date): void;
-    say(something: string, dateTime: Date, ms: number): void;
-    yell(error: Error, something: string, dateTime: Date, ms: number): void;
+    see(something: string, dateTime: Date, context: Map<string, any>): void;
+    say(something: string, dateTime: Date, ms: number, context: Map<string, any>): void;
+    yell(error: Error, something: string, dateTime: Date, ms: number, context: Map<string, any>): void;
 }
 
 /**
@@ -13,7 +14,7 @@ export interface ITheme {
  */
 export class Yorker {
     constructor(
-        private printer: ITheme = new NYPDTheme(),
+        private theme: ITheme = new NYPDTheme(),
         private enabled: boolean = process.env.NODE_ENV === 'production',
     ) { }
 
@@ -27,15 +28,17 @@ export class Yorker {
         if (this.enabled) return NOOP;
 
         const start = Date.now();
-        this.printer.see(something, new Date(start));
-
+        const context = new Map<string, any>();
+        context.set('start', start);
+        this.theme.see(something, new Date(start), context);
         return (say: string, error?: Error) => {
             const end = Date.now();
+            context.set('end', end);
             const ms = (end - start);
             if (error) {
-                return this.printer.yell(error, say, new Date(end), ms);
+                return this.theme.yell(error, say, new Date(end), ms, context);
             }
-            return this.printer.say(say, new Date(end), ms);
+            return this.theme.say(say, new Date(end), ms, context);
         };
     }
 }

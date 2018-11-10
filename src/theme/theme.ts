@@ -2,9 +2,9 @@ import chalk from 'chalk';
 import { ITheme } from '../yorker';
 
 export abstract class Theme implements ITheme {
-    abstract see(something: string, dateTime: Date): void;
-    abstract say(something: string, dateTime: Date, ms: number): void;
-    abstract yell(error: Error, something: string, dateTime: Date, ms: number): void;
+    abstract see(something: string, dateTime: Date, context: Map<string, any>): void;
+    abstract say(something: string, dateTime: Date, ms: number, context: Map<string, any>): void;
+    abstract yell(error: Error, something: string, dateTime: Date, ms: number, context: Map<string, any>): void;
 
     protected print(left: () => string, right: () => string) {
         let leftLen = 0;

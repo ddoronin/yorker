@@ -12,7 +12,7 @@ Install using `yarn` or `npm`.
 $ yarn add yorker
 ```
 ```bash
-$ npm --save yorker
+$ npm install yorker --save
 ```
 
 Import in one of your `js`, `ts` or `vue` files and start using it.
