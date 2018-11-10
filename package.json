@@ -1,0 +1,21 @@
+{
+  "name": "yorker",
+  "version": "0.0.1",
+  "description": "Small NodeJS library that is aware of the logging",
+  "main": "index.js",
+  "repository": "git@github.com:ddoronin/yorker.git",
+  "author": "<doronindm@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "run": "ts-node ./src/index.ts",
+    "pre-publish": "rm -rf lib && tsc --declaration -p ./tsconfig.json --outDir lib/"
+  },
+  "dependencies": {
+    "@types/node": "^10.12.5",
+    "chalk": "^2.4.1",
+    "typescript": "^3.1.6"
+  },
+  "devDependencies": {
+    "ts-node": "^7.0.1"
+  }
+}
