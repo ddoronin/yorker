@@ -1,5 +1,9 @@
 # Yorker
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ddoronin/yorker/blob/master/LICENSE) 
+[![npm version](https://img.shields.io/npm/v/yorker.svg?style=flat)](https://www.npmjs.com/package/yorker) 
+[![Build Status](https://travis-ci.org/ddoronin/yorker.svg?branch=master)](https://travis-ci.org/ddoronin/yorker) 
+
 NodeJS library for nice & easy console logs.
 
 ## Quick Start
