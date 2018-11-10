@@ -3,7 +3,7 @@
 NodeJS library for nice & easy console logs.
 
 ## Quick Start
-Install this library using `yarn` or `npm`.
+Install using `yarn` or `npm`.
 ```bash
 $ yarn add yorker
 ```
@@ -11,13 +11,12 @@ $ yarn add yorker
 $ npm --save yorker
 ```
 
-Import in one of your `js`, `ts` or `vue` files and just use it.
+Import in one of your `js`, `ts` or `vue` files and start using it.
 ```typescript
 import { yorker } from 'yorker';
 
 const say = yorker.see('something');
-...
-say('something);
+say('something');
 ```
 By default it will be switched off for production enviroment `NODE_ENV="production"`.
 
@@ -57,6 +56,5 @@ function startMongo(config: { url: string }) {
         say('Connection to mongo succeeded.');
     });
 }
-
 ```
 
