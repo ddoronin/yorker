@@ -1,6 +1,6 @@
 {
   "name": "yorker",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Small NodeJS library that is aware of the logging",
   "main": "index.js",
   "repository": "git@github.com:ddoronin/yorker.git",
