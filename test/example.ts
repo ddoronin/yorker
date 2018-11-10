@@ -1,5 +1,5 @@
 import { yorker } from '../src/index';
 
-const say = yorker.see('Something is going on here...');
-say('Everything is Okay!');
-say('Bomb!', new Error('boooom'));
+const say = yorker.see('See suspicious activity...');
+say('just decorations for "John Wick 3" movie.');
+say('not a movie, dude!!!', new Error('Alert!'));

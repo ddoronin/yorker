@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc --declaration -p ./tsconfig.json --outDir lib/",
-    "watch": "ts-node ./src/index.ts",
+    "example": "ts-node ./test/example.ts",
     "pre-publish": "rm -rf lib && yarn build"
   },
   "dependencies": {
