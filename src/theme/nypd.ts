@@ -1,57 +1,30 @@
 import chalk from 'chalk';
 import { formatTimeTicks } from '../utils'
-import { ITheme } from '../yorker';
+import { Theme } from './theme';
 
-export class NYPDTheme implements ITheme {
+export class NYPDTheme extends Theme {
     see(something: string, dateTime: Date) {
         const dateTimeFormatted = dateTime.toLocaleTimeString();
         this.print(
-            '🚔 ' + chalk.yellow(something),
-            ('🚔 ' + something).length,
-            chalk.gray.dim(dateTimeFormatted),
-            dateTimeFormatted.length
+            () => '🚔 ' + chalk.yellow(something),
+            () => chalk.gray.dim(dateTimeFormatted)
         );
     }
 
     say(something: string, dateTime: Date, ms: number) {
         const time = formatTimeTicks(ms);
         this.print(
-            '🚕 ' + chalk.green(something), 
-            ('🚕 ' + (something)).length, 
-            chalk.gray.dim(time),
-            time.length
+            () => '🚕 ' + chalk.green(something), 
+            () => chalk.gray.dim(time)
         );
     }
 
     yell(error: Error, something: string, dateTime: Date, ms: number) {
         const time = formatTimeTicks(ms);
         this.print(
-            '🚓 🚑 🚒 ' + chalk.red(something), 
-            ('🚓 🚑 🚒 ' + something).length, 
-            chalk.gray.dim(time),
-            time.length
+            () => '🚓 🚑 🚒 ' + chalk.red(something), 
+            () => chalk.gray.dim(time)
         );
         console.error(error);
-    }
-
-    private print(left: string, leftLen: number, right: string, rightLen: number) {
-        console.info(this.format(left, leftLen, right, rightLen));
-    }
-
-    private width(): number {
-        return process.stdout.columns;
-    }
-    
-    private format(left: string, leftLen: number, right: string, rightLen: number): string {
-        const maxLen = this.width();
-        const leftLength = leftLen;
-        const exactLeftLen = maxLen - rightLen;
-        if (exactLeftLen < 0 || leftLength > exactLeftLen) {
-            // print in two lines:
-            return `${left}\n${right}`;
-        }
-    
-        const spaces = new Array<string>(exactLeftLen - leftLength);
-        return left + spaces.fill(' ').join('') + right;
     }
 }

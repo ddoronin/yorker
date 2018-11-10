@@ -3,9 +3,9 @@ import { NYPDTheme } from './theme';
 const NOOP = (msg: string, error?: Error): void => null;
 
 export interface ITheme {
-    see: (something: string, dateTime: Date) => void,
-    say: (something: string, dateTime: Date, ms: number) => void,
-    yell: (error: Error, something: string, dateTime: Date, ms: number) => void,
+    see(something: string, dateTime: Date): void;
+    say(something: string, dateTime: Date, ms: number): void;
+    yell(error: Error, something: string, dateTime: Date, ms: number): void;
 }
 
 /**
