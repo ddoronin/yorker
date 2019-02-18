@@ -1,5 +1,4 @@
 import { NYPDTheme } from './theme';
-import { stringify } from 'querystring';
 
 const NOOP = (msg: string, error?: Error): void => null;
 
