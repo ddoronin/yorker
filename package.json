@@ -1,6 +1,6 @@
 {
   "name": "yorker",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Nice development logs",
   "main": "lib/index.js",
   "repository": "git@github.com:ddoronin/yorker.git",
